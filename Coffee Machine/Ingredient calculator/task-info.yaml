@@ -119,6 +119,12 @@ files:
         }
     }
   learner_created: false
+- name: src/machine/CoffeeMachine.kt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/361/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Sun, 17 Jan 2021 22:44:19 UTC
+record: 2

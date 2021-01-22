@@ -221,6 +221,12 @@ files:
         }
     }
   learner_created: true
+- name: src/machine/Ingredients.kt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/362/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Fri, 22 Jan 2021 21:06:44 UTC
 record: -1

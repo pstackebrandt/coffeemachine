@@ -1,18 +1,6 @@
 package machine
 
 fun main() {
-    CoffeeMachine().loopMenu()
-
-    val showAll = false
-    if (showAll) {
-        println("""
-        Starting to make a coffee
-        Grinding coffee beans
-        Boiling water
-        Mixing boiled water with crushed coffee beans
-        Pouring coffee into the cup
-        Pouring some milk into the cup
-        Coffee is ready!
-        """.trimIndent())
-    }
+    val ingredients = Ingredients(waterMl = 400, coffeeBeans = 120, milkMl = 540, cups = 9, money = 550)
+    CoffeeMachine(ingredients).start()
 }

@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/215428/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Fri, 22 Jan 2021 21:10:53 UTC
+update_date: Tue, 06 Apr 2021 08:45:10 UTC
 stages:
 - id: 360
   step: 5659
@@ -36,6 +36,8 @@ topics:
   - title: Standard output
     theory_id: 4425
   1:
+  - title: Modulo division
+    theory_id: 10586
   - title: Units of information
     theory_id: 6865
   - title: Intro to computational thinking
@@ -46,25 +48,27 @@ topics:
     theory_id: 4371
   - title: Data types
     theory_id: 4388
-  - title: The classification of basic types
-    theory_id: 4455
   - title: Boolean and logical operations
     theory_id: 4515
   - title: Invoking functions
     theory_id: 4575
   - title: Standard input
     theory_id: 4445
+  - title: The classification of basic types
+    theory_id: 4455
   - title: Type conversion
     theory_id: 4672
   - title: Reading data with a readLine
     theory_id: 11224
-  - title: Modulo division
-    theory_id: 10586
+  - title: String basics
+    theory_id: 12553
+  - title: String templates
+    theory_id: 4547
   - title: Arithmetic operations
     theory_id: 4472
   - title: Increment and decrement
     theory_id: 10776
-  - title: Type inference
+  - title: Type of the numeric expression
     theory_id: 9506
   - title: Integers in action
     theory_id: 4488
@@ -72,34 +76,32 @@ topics:
     theory_id: 4525
   - title: Characters
     theory_id: 4680
-  - title: Strings
-    theory_id: 4540
+  - title: Working with strings
+    theory_id: 12561
   2:
-  - title: String templates
-    theory_id: 4547
   - title: If expression
     theory_id: 4625
   3:
+  - title: IDE
+    theory_id: 10996
   - title: Comments
     theory_id: 4406
   - title: Coding style conventions
     theory_id: 4419
   - title: Naming variables
     theory_id: 4389
-  - title: IDE
-    theory_id: 10996
-  - title: Declaring functions
-    theory_id: 4580
-  - title: Ranges
-    theory_id: 4633
-  - title: When expression
-    theory_id: 4631
   - title: IntelliJ IDEA
     theory_id: 3801
   - title: IDEA Basics
     theory_id: 5819
   - title: EduTools
     theory_id: 5839
+  - title: Declaring functions
+    theory_id: 4580
+  - title: Ranges
+    theory_id: 4633
+  - title: When expression
+    theory_id: 4631
   4:
   - title: Repeating blocks
     theory_id: 4643
@@ -110,6 +112,8 @@ topics:
     theory_id: 3614
   - title: Objects
     theory_id: 11233
+  - title: Functional decomposition
+    theory_id: 12668
   - title: Default arguments
     theory_id: 4637
   - title: Named arguments

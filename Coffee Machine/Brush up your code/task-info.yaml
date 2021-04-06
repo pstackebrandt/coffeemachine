@@ -16,7 +16,6 @@ files:
     import org.hyperskill.hstest.stage.StageTest;
     import org.hyperskill.hstest.testcase.CheckResult;
     import org.hyperskill.hstest.testcase.TestCase;
-    import machine.MainKt;
 
     import java.util.ArrayList;
     import java.util.Arrays;
@@ -41,10 +40,6 @@ files:
     }
 
     public class CoffeeMachineTest extends StageTest<TestClue> {
-
-        public CoffeeMachineTest() {
-            super(MainKt.class);
-        }
 
         @Override
         public List<TestCase<TestClue>> generate() {

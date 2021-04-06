@@ -1,0 +1,4 @@
+TODO
+
+//Konstruktor auswerten
+getIngredientsMessage() korrigieren

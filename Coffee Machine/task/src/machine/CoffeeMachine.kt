@@ -2,18 +2,16 @@ package machine
 
 import kotlin.math.min
 
+class CoffeeMachine(private val ingredients: Ingredients) {
 
-class CoffeeMachine {
-    private val ingredients = Ingredients()
-
-    fun loopMenu() {
+    fun start() {
         var loop: Boolean
 
         do {
-            sumIngredients(getAdditionalIngredients())
-            printPossibleCoffeeAnswer(howMuchCoffeeRequired())
-//            printIngredients(howMuchCoffee())
-            loop = false
+            printIngredients()
+            //sumIngredients(getAdditionalIngredients())
+            //printPossibleCoffeeAnswer(howMuchCoffeeRequired())
+            loop = false // currently no looping required
         } while (loop)
     }
 
@@ -53,7 +51,6 @@ class CoffeeMachine {
         return minOf(coffeeFromWater, coffeeFromBeans, coffeeFromMilk)
     }
 
-    @Suppress("unused")
     private fun sumIngredients(additionalIngredients: Ingredients) {
         ingredients.run {
             waterMl += additionalIngredients.waterMl
@@ -63,7 +60,7 @@ class CoffeeMachine {
     }
 
     private fun getAdditionalIngredients(): Ingredients {
-        val additionalIngredients = Ingredients()
+        val additionalIngredients = Ingredients(money = 550, cups = 9)
 
         getIngredientAmount(Ingredient.Water)?.run {
             additionalIngredients.waterMl += this
@@ -79,25 +76,43 @@ class CoffeeMachine {
     }
 
     private fun getIngredientAmount(type: Ingredient): Int? {
-        println("Write how many ${type.unitPluralShort} of ${type.namePlural} the coffee machine has")
+        println("Write how many ${type.unitPluralShort} of " +
+                "${type.namePlural} the coffee machine has")
         return readLine()!!.toIntOrNull()
     }
 
     @Suppress("unused")
-    private fun printIngredients(coffeeCount: Int) {
-        print(getIngredientsMessage(coffeeCount))
+    private fun printIngredients(coffeeCount: Int = 0) {
+        print(getIngredientsMessage(ingredients, coffeeCount))
     }
 
-    private fun getIngredientsMessage(coffeeCount: Int): String {
-        val waterInMl = coffeeCount * 200
-        val beansInG = coffeeCount * 15
-        val milkInMl = coffeeCount * 50
+    private fun getIngredientsMessage(ingredients: Ingredients, coffeeCount: Int = 0): String {
+
+        if (coffeeCount <= 0) {
+            return ingredients.run {
+                """
+                The coffee machine has:
+                $waterMl of water
+                $milkMl of milk
+                $coffeeBeans of coffee beans
+                $cups of disposable cups
+                $money of money
+                """.trimIndent()
+            }
+        }
+
+        val waterInMl = coffeeCount * WaterMlPerCoffeeCup
+        val beansInG = coffeeCount * BeansPerCoffeeCup
+        val milkInMl = coffeeCount * MilkMlPerCoffeeCup
+        val money = coffeeCount * Price
 
         return """
             For $coffeeCount cups of coffee you will need:
             $waterInMl ml of water
             $milkInMl ml of milk
             $beansInG g of coffee beans
+            ${ingredients.cups} of disposable cups
+            $money of money
             """.trimIndent()
     }
 
@@ -107,13 +122,16 @@ class CoffeeMachine {
         if (cups != null && cups >= 0) {
             return cups
         }
-        return 0 // todo Fehlerbehandlung
+        return 0 // todo error handling
     }
 
     companion object {
         const val WaterMlPerCoffeeCup = 200
         const val BeansPerCoffeeCup = 15
         const val MilkMlPerCoffeeCup = 50
+        const val CoffeeCup = 1
+        const val Price = 7
+
     }
 }
 

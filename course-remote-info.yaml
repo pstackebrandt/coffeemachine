@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/215428/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Tue, 06 Apr 2021 08:45:10 UTC
+update_date: Fri, 09 Jul 2021 15:12:55 UTC
 stages:
 - id: 360
   step: 5659
@@ -38,6 +38,8 @@ topics:
   1:
   - title: Modulo division
     theory_id: 10586
+  - title: Modulo division with negative numbers
+    theory_id: 13541
   - title: Units of information
     theory_id: 6865
   - title: Intro to computational thinking
@@ -48,8 +50,6 @@ topics:
     theory_id: 4371
   - title: Data types
     theory_id: 4388
-  - title: Boolean and logical operations
-    theory_id: 4515
   - title: Invoking functions
     theory_id: 4575
   - title: Standard input
@@ -60,10 +60,6 @@ topics:
     theory_id: 4672
   - title: Reading data with a readLine
     theory_id: 11224
-  - title: String basics
-    theory_id: 12553
-  - title: String templates
-    theory_id: 4547
   - title: Arithmetic operations
     theory_id: 4472
   - title: Increment and decrement
@@ -72,13 +68,19 @@ topics:
     theory_id: 9506
   - title: Integers in action
     theory_id: 4488
+  2:
+  - title: Boolean and logical operations
+    theory_id: 4515
+  - title: String basics
+    theory_id: 12553
+  - title: String templates
+    theory_id: 4547
   - title: Relational operators
     theory_id: 4525
   - title: Characters
     theory_id: 4680
   - title: Working with strings
     theory_id: 12561
-  2:
   - title: If expression
     theory_id: 4625
   3:

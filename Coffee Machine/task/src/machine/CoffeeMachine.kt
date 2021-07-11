@@ -5,14 +5,17 @@ import kotlin.math.min
 class CoffeeMachine(private val ingredients: Ingredients) {
 
     fun start() {
+        println("start")
         var loop: Boolean
 
         do {
-            printIngredients()
+            //printIngredients()
+            Action().manageAction()
             //sumIngredients(getAdditionalIngredients())
             //printPossibleCoffeeAnswer(howMuchCoffeeRequired())
             loop = false // currently no looping required
         } while (loop)
+        println("end of start")
     }
 
     private fun printPossibleCoffeeAnswer(requiredCoffeeCount: Int) {

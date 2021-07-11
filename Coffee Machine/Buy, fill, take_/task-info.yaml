@@ -502,6 +502,12 @@ files:
 - name: src/machine/Plan.txt
   visible: true
   learner_created: true
+- name: src/machine/Action.kt
+  visible: true
+  learner_created: true
+- name: src/machine/InputGetter.kt
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/363/implement#comment
 status: Failed
 feedback:

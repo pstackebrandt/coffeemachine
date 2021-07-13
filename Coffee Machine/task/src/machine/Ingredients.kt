@@ -1,5 +1,6 @@
 package machine
 
+/** Container for all ingredients used to make a beverage.*/
 data class Ingredients(
         var waterMl: Int = 0,
         var milkMl: Int = 0,
@@ -7,6 +8,7 @@ data class Ingredients(
         val money: Int = 0,
         val cups: Int = 0)
 
+/** Seems to define each ingredient. */
 enum class Ingredient(
         val namePlural: String,
         val unitPluralShort: String) {

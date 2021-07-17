@@ -518,34 +518,8 @@ files:
     }
   learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/363/implement#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Wrong answer in test #1
-
-    After &quot;take&quot; action money amount should be zero
-
-    Please find below the output of your program during this failed test.
-    Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
-
-    ---
-
-    The coffee machine has:
-    400 of water
-    540 of milk
-    120 of coffee beans
-    9 of disposable cups
-    550 of money
-
-    Write action (buy, fill, take):
-    &gt; take
-    doAction: ActionType TAKE not supported
-
-    The coffee machine has:
-    400 of water
-    540 of milk
-    120 of coffee beans
-    9 of disposable cups
-    550 of money
-  time: Sat, 17 Jul 2021 15:17:54 UTC
+  message: Congratulations!
+  time: Sat, 17 Jul 2021 16:26:44 UTC
 record: 4

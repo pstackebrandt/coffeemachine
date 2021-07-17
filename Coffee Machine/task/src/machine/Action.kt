@@ -22,7 +22,7 @@ class Action {
         when (action) {
             ActionType.BUY -> Buying(ingredients).buy()
             ActionType.FILL -> ingredients.fillStore()
-//            ActionType.TAKE ->
+            ActionType.TAKE -> ingredients.take()
             else -> {
                 println("doAction: ActionType ${action.name} not supported")
             }

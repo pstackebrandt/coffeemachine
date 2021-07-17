@@ -62,3 +62,6 @@ local.properties
 buildSrcTmp/
 distTmp/
 outTmp/
+
+#manually added
+lib/

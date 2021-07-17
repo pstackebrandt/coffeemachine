@@ -523,9 +523,10 @@ feedback:
   message: |-
     Wrong answer in test #1
 
-    There should be two lines with &quot;milk&quot;, found: 1
+    After &quot;take&quot; action money amount should be zero
 
     Please find below the output of your program during this failed test.
+    Note that the &#39;&gt;&#39; character indicates the beginning of the input line.
 
     ---
 
@@ -535,5 +536,16 @@ feedback:
     120 of coffee beans
     9 of disposable cups
     550 of money
-  time: Sat, 10 Jul 2021 18:28:54 UTC
+
+    Write action (buy, fill, take):
+    &gt; take
+    doAction: ActionType TAKE not supported
+
+    The coffee machine has:
+    400 of water
+    540 of milk
+    120 of coffee beans
+    9 of disposable cups
+    550 of money
+  time: Sat, 17 Jul 2021 15:17:54 UTC
 record: 4

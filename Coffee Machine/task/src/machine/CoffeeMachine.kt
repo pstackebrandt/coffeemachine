@@ -1,25 +1,29 @@
 package machine
 
-import kotlin.math.min
+import machine.product.Ingredient
+import machine.product.IngredientStore
 
-class CoffeeMachine(private val ingredients: Ingredients) {
+const val showComments = false
+
+class CoffeeMachine(private val ingredients: IngredientStore) {
 
     fun start() {
-        println("start")
+        if(showComments) println("start")
         var loop: Boolean
 
         do {
-            //printIngredients()
+            printIngredients()
             Action().manageAction(ingredients)
             //sumIngredients(getAdditionalIngredients())
             //printPossibleCoffeeAnswer(howMuchCoffeeRequired())
+            printIngredients()
             loop = false // currently no looping required
         } while (loop)
-        println("end of start")
+        if(showComments) println("end of start")
     }
 
-    private fun getAdditionalIngredients(): Ingredients {
-        val additionalIngredients = Ingredients(money = 550, cups = 9)
+    private fun getAdditionalIngredients(): IngredientStore {
+        val additionalIngredients = IngredientStore(money = 550, cups = 9)
 
         getIngredientAmount(Ingredient.Water)?.run {
             additionalIngredients.waterMl += this
@@ -45,7 +49,7 @@ class CoffeeMachine(private val ingredients: Ingredients) {
         print(getIngredientsMessage(ingredients, coffeeCount))
     }
 
-    private fun getIngredientsMessage(ingredients: Ingredients, coffeeCount: Int = 0): String {
+    private fun getIngredientsMessage(ingredients: IngredientStore, coffeeCount: Int = 0): String {
 
         if (coffeeCount <= 0) {
             return ingredients.run {

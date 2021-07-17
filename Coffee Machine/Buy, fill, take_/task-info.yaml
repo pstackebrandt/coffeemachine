@@ -481,7 +481,25 @@ files:
     }
 
   learner_created: true
-- name: src/machine/Ingredients.kt
+- name: src/machine/Plan.txt
+  visible: true
+  learner_created: true
+- name: src/machine/Action.kt
+  visible: true
+  learner_created: true
+- name: src/machine/InputGetter.kt
+  visible: true
+  learner_created: true
+- name: test/machine/ActionTest.kt
+  visible: true
+  learner_created: true
+- name: src/machine/product/ProductType.kt
+  visible: true
+  learner_created: true
+- name: src/machine/order/Order.kt
+  visible: true
+  learner_created: true
+- name: src/machine/product/IngredientStore.kt
   visible: true
   text: |-
     package machine
@@ -498,15 +516,6 @@ files:
         Milk("milk", "ml"),
         CoffeeBeans("coffee beans", "grams")
     }
-  learner_created: true
-- name: src/machine/Plan.txt
-  visible: true
-  learner_created: true
-- name: src/machine/Action.kt
-  visible: true
-  learner_created: true
-- name: src/machine/InputGetter.kt
-  visible: true
   learner_created: true
 feedback_link: https://hyperskill.org/projects/67/stages/363/implement#comment
 status: Failed
@@ -527,4 +536,4 @@ feedback:
     9 of disposable cups
     550 of money
   time: Sat, 10 Jul 2021 18:28:54 UTC
-record: -1
+record: 4

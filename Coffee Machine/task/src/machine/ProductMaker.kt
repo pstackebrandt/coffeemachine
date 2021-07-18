@@ -7,7 +7,7 @@ import machine.product.ProductType
 import kotlin.math.min
 
 
-class ProductMaker(var ingredients: IngredientStore) {
+class ProductMaker(private var ingredients: IngredientStore) {
     companion object {
         /** Returns how many pieces of the product in [product] could be produced
          * with the [storedIngredients].*/
@@ -30,25 +30,9 @@ class ProductMaker(var ingredients: IngredientStore) {
         }
     }
 
-//    private fun printPossibleCoffeeAnswer(requiredCoffeeCount: Int) {
-//        println(getPossibleCoffeeAnswer(requiredCoffeeCount))
-//    }
-
-//    private fun getPossibleCoffeeAnswer(requiredCoffeeCount: Int): String {
-//        val cupsCoffeeMadeCount = makeCupsOfCoffee(requiredCoffeeCount)
-//        val furtherPossibleCoffeeCount = howManyPiecesProduceable(ingredients)
-//
-//        return when {
-//            furtherPossibleCoffeeCount > 0 -> "Yes, I can make that amount of coffee " +
-//                    "(and even $furtherPossibleCoffeeCount more than that)"
-//            cupsCoffeeMadeCount < requiredCoffeeCount -> "No, I can make only $cupsCoffeeMadeCount cups of coffee"
-//            else -> "Yes, I can make that amount of coffee"
-//        }
-//    }
-
     /** Create
      * @return produced drinks */
-    fun makeDrinks(orderPart: Part): Part {
+    private fun makeDrinks(orderPart: Part): Part {
         val drinkAmountToMake = getDrinkAmountsToMake(orderPart)
         val ingredientsPerDrink = orderPart.product.ingredients
 
@@ -72,24 +56,6 @@ class ProductMaker(var ingredients: IngredientStore) {
         return min(orderPart.amount, possibleAmount)
     }
 
-
-    private fun sumIngredients(additionalIngredients: IngredientStore) {
-        ingredients.run {
-            waterMl += additionalIngredients.waterMl
-            milkMl += additionalIngredients.milkMl
-            coffeeBeans += additionalIngredients.coffeeBeans
-        }
-    }
-
-    private fun howMuchCoffeeRequired(): Int {
-        println("Write how many cups of coffee you will need:")
-        val cups = readLine()?.toIntOrNull()
-        if (cups != null && cups >= 0) {
-            return cups
-        }
-        return 0 // todo error handling
-    }
-
     /** Process an [order] which contains expected products.
      * @return Order which contains created products and the not created products. */
     fun processOrder(order: Order): Order {
@@ -103,7 +69,7 @@ class ProductMaker(var ingredients: IngredientStore) {
 
             order.parts.add(producedDrinks)
 
-            if(showComments) println(
+            if (showComments) println(
                 "$tag producedProduct: ${producedDrinks.product.name}, " +
                         "produced: ${producedDrinks.amount}, " +
                         "required: ${requiredProduct.amount}"

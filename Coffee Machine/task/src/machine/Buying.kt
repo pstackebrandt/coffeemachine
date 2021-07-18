@@ -6,9 +6,11 @@ import machine.product.IngredientStore
 import machine.product.ProductType
 import java.util.*
 
-/** Allows to buy something */
-class Buying(var ingredients: IngredientStore) {
+/** Allows to buy something. Before we can sell,
+ * we ask for an order and produce the products. */
+class Buying(private var ingredients: IngredientStore) {
 
+    /** Let user buy something (includes getting order, producing and selling). */
     fun buy() {
         val order: Order
         try {

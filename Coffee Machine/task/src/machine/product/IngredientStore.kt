@@ -1,5 +1,17 @@
 package machine.product
 
+/** Defines each possible ingredient. */
+enum class Ingredient(
+    val longNamePlural: String,
+    val unitPluralShort: String
+) {
+    Water("water", "ml"),
+    Milk("milk", "ml"),
+    CoffeeBeans("coffee beans", "grams"),
+    Cups("disposable cups of coffee", ""),
+    Money("money", "")
+}
+
 /** Container for all ingredients used to make a beverage.*/
 data class IngredientStore(
     var waterMl: Int = 0,
@@ -73,17 +85,4 @@ data class IngredientStore(
         println("I gave you \$$money")
         money = 0
     }
-}
-
-/** Seems to define each ingredient. */
-enum class Ingredient(
-    val namePlural: String,
-    val longNamePlural: String,
-    val unitPluralShort: String
-) {
-    Water("water", "water", "ml"),
-    Milk("milk", "milk", "ml"),
-    CoffeeBeans("coffee beans", "coffee beans", "grams"),
-    Cups("disposable cups", "disposable cups of coffee", ""),
-    Money("money", "money", "")
 }

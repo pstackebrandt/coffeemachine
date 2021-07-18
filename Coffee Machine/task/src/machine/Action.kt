@@ -12,25 +12,23 @@ enum class ActionType(val text: ArrayList<String>, val description: String, val 
     EXIT(arrayListOf("exit", "back"), "Back - to main menu", arrayListOf("e", "b")),
 }
 
+/** Lets you choose, start and return from a task of type [ActionType]*/
 class Action {
     /** Ask for action, fulfill action*/
-    fun manageAction(ingredients: IngredientStore) : String {
+    fun manageAction(ingredients: IngredientStore): String {
         val action: ActionType = askForAction()
         if (showComments) println("Action: $action")
         return doAction(action, ingredients)
     }
 
     /** Do expected action or nothing. */
-    private fun doAction(action: ActionType, ingredients: IngredientStore) : String{
+    private fun doAction(action: ActionType, ingredients: IngredientStore): String {
         when (action) {
             ActionType.BUY -> Buying(ingredients).buy()
             ActionType.FILL -> ingredients.fillStore()
             ActionType.TAKE -> ingredients.take()
             ActionType.REMAINING -> ingredients.printIngredients()
             ActionType.EXIT -> return ActionType.EXIT.name
-            else -> {
-                println("doAction: ActionType ${action.name} not supported")
-            }
         }
         return "ok"
     }

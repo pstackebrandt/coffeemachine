@@ -10,8 +10,8 @@ class CoffeeMachine(private val ingredients: IngredientStore) {
         if (showComments) println("start")
         var loop = true
 
+//        ingredients.printIngredients()
         do {
-            ingredients.printIngredients()
             repeat(2) { println() }
             val actionResult = Action().manageAction(ingredients)
             println()

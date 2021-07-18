@@ -1,13 +1,15 @@
 package machine
 
 import machine.product.IngredientStore
+import java.util.*
+import kotlin.collections.ArrayList
 
-enum class ActionType(val text: String, val description: String) {
-    BUY("buy", "Buy something"),
-    FILL("fill", "Refill ingredients and cups"),
-    TAKE("take", "Take money from machine"),
-    REMAINING("remaining", "Take money from machine"),
-    EXIT("exit", "Back - to main menu"),
+enum class ActionType(val text: ArrayList<String>, val description: String, val shortcut: ArrayList<String>) {
+    BUY(arrayListOf("buy"), "Buy something", arrayListOf("b")),
+    FILL(arrayListOf("fill"), "Refill ingredients and cups", arrayListOf("f")),
+    TAKE(arrayListOf("take"), "Take money from machine", arrayListOf("t")),
+    REMAINING(arrayListOf("remaining"), "Take money from machine", arrayListOf("r")),
+    EXIT(arrayListOf("exit", "back"), "Back - to main menu", arrayListOf("e", "b")),
 }
 
 class Action {
@@ -38,14 +40,14 @@ class Action {
 
         do {
             val input = InputGetter.getCommandText()
-                .toLowerCase()
+                .lowercase(Locale.getDefault())
 
             when (input) {
-                ActionType.BUY.text -> return ActionType.BUY
-                ActionType.FILL.text -> return ActionType.FILL
-                ActionType.TAKE.text -> return ActionType.TAKE
-                ActionType.REMAINING.text -> return ActionType.REMAINING
-                ActionType.EXIT.text -> return ActionType.EXIT
+                ActionType.BUY.text.first(), ActionType.BUY.shortcut.first() -> return ActionType.BUY
+                ActionType.FILL.text.first(), ActionType.FILL.shortcut.first() -> return ActionType.FILL
+                ActionType.TAKE.text.first(), ActionType.TAKE.shortcut.first() -> return ActionType.TAKE
+                ActionType.REMAINING.text.first(), ActionType.REMAINING.shortcut.first() -> return ActionType.REMAINING
+                ActionType.EXIT.text.first(), ActionType.EXIT.shortcut.first() -> return ActionType.EXIT
             }
         } while (true)
     }

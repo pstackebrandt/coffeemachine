@@ -4,13 +4,19 @@ import machine.order.Order
 import machine.order.Part
 import machine.product.IngredientStore
 import machine.product.ProductType
+import java.util.*
 
 /** Allows to buy something */
 class Buying(var ingredients: IngredientStore) {
 
     fun buy() {
-        val order = getOrder() // may later return list of ordered products: Product + Amount
-        val maker = CoffeeMaker(ingredients)
+        val order: Order
+        try {
+            order = getOrder()
+        } catch (exc: BreakTaskException) {
+            return
+        }
+        val maker = ProductMaker(ingredients)
         val processedOrder = maker.processOrder(order)
         val revenueMoney = sellProducts(processedOrder)
         ingredients.money += revenueMoney
@@ -18,13 +24,22 @@ class Buying(var ingredients: IngredientStore) {
 
     /** Acquire order of 1 specific coffee from console. Must return 1. */
     private fun getOrder(): Order {
-        println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:")
+        println(
+            "What do you want to buy? " +
+                    "${ProductType.ESPRESSO.id} - ${ProductType.ESPRESSO.text}, " +
+                    "${ProductType.LATTE.id}  - ${ProductType.LATTE.text}, " +
+                    "${ProductType.CAPPUCCINO.id} - ${ProductType.CAPPUCCINO.text}, " +
+                    "${ActionType.EXIT.description.lowercase(Locale.getDefault())}:"
+        )
 
         do {
             when (val productName = InputGetter.getCommandText()) {
                 ProductType.ESPRESSO.id.toString() -> return Order(Part(ProductType.ESPRESSO))
                 ProductType.LATTE.id.toString() -> return Order(Part(ProductType.LATTE))
                 ProductType.CAPPUCCINO.id.toString() -> return Order(Part(ProductType.CAPPUCCINO))
+                ActionType.EXIT.text.first(), ActionType.EXIT.text.last(),
+                ActionType.EXIT.shortcut.first(), ActionType.EXIT.shortcut.last() -> throw BreakTaskException("No order intended.")
+
                 else -> {
                     println("getOrder() Product $productName not supported.")
                 }

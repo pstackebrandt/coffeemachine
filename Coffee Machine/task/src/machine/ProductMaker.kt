@@ -7,7 +7,7 @@ import machine.product.ProductType
 import kotlin.math.min
 
 
-class CoffeeMaker(var ingredients: IngredientStore) {
+class ProductMaker(var ingredients: IngredientStore) {
     companion object {
         /** Returns how many pieces of the product in [product] could be produced
          * with the [storedIngredients].*/

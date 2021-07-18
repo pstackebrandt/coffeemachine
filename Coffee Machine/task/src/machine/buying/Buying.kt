@@ -1,5 +1,8 @@
-package machine
+package machine.buying
 
+import machine.ActionType
+import machine.InputGetter
+import machine.product.ProductMaker
 import machine.order.Order
 import machine.order.Part
 import machine.product.IngredientStore

@@ -1,9 +1,8 @@
-package machine
+package machine.product
 
 import machine.order.Order
 import machine.order.Part
-import machine.product.IngredientStore
-import machine.product.ProductType
+import machine.showComments
 import kotlin.math.min
 
 
